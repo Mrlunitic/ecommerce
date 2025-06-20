@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+}
+
+.search-bar {
+  width: 50%;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: white;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+  min-height: calc(100vh - 60px);
+}
+
+.menu-item {
+  margin-bottom: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  color: red;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  flex: 1;
+}
+
+.video-card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.video-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-card h3 {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.video-card p {
+  padding: 0 10px 10px;
+  color: gray;
+  font-size: 14px;
+}
+
+  div {
+    height: 400px;
+    width: 600px;
+    background-color: red;
+    margin-top: 10px;
+    border: 100px;
+    border-radius: 50px;
+
+
+}
+h1{
+  border: 2px dashed gray;
+  border-radius: 20;
+  margin: 0;
+
+}
+button{
+  border:2px solid black;
+  padding: 10px, 10px,10px, 10px;
+}
+button :hover
