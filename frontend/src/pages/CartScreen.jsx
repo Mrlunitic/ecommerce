@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { useAuth } from '../hooks/useAuth';
-import CartItem from '../components/CartItem';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useAuth } from "../hooks/useAuth";
+import CartItem from "../components/CartItem";
 
 const CartScreen = () => {
   const [cart, setCart] = useState(null);
@@ -13,17 +13,19 @@ const CartScreen = () => {
 
   useEffect(() => {
     if (!user) {
-      navigate('/login');
+      navigate("/login");
       return;
     }
 
     const fetchCart = async () => {
       try {
-        const { data } = await axios.get('/api/cart', { withCredentials: true });
+        const { data } = await axios.get("/api/cart", {
+          withCredentials: true,
+        });
         setCart(data);
         setLoading(false);
       } catch (err) {
-        setError(err.response?.data?.message || 'Error fetching cart');
+        setError(err.response?.data?.message || "Error fetching cart");
         setLoading(false);
       }
     };
@@ -40,7 +42,7 @@ const CartScreen = () => {
       );
       setCart(data);
     } catch (err) {
-      setError(err.response?.data?.message || 'Error updating cart');
+      setError(err.response?.data?.message || "Error updating cart");
     }
   };
 
@@ -51,12 +53,12 @@ const CartScreen = () => {
       });
       setCart(data);
     } catch (err) {
-      setError(err.response?.data?.message || 'Error removing from cart');
+      setError(err.response?.data?.message || "Error removing from cart");
     }
   };
 
   const checkoutHandler = () => {
-    navigate('/shipping');
+    navigate("/shipping");
   };
 
   if (loading) return <div>Loading...</div>;
@@ -86,10 +88,18 @@ const CartScreen = () => {
           </div>
           <div className="border p-4 rounded-lg">
             <h2 className="text-xl font-semibold mb-4">
-              Subtotal ({cart?.items?.reduce((acc, item) => acc + item.quantity, 0)}) items
+              Subtotal (
+              {cart?.items?.reduce((acc, item) => acc + item.quantity, 0)})
+              items
             </h2>
             <p className="text-2xl mb-4">
-              ${cart?.items?.reduce((acc, item) => acc + item.quantity * item.product.price, 0).toFixed(2)}
+              $
+              {cart?.items
+                ?.reduce(
+                  (acc, item) => acc + item.quantity * item.product.price,
+                  0
+                )
+                .toFixed(2)}
             </p>
             <button
               onClick={checkoutHandler}
